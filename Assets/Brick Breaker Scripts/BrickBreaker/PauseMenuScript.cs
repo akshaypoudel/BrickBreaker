@@ -17,7 +17,7 @@ namespace BrickBreakerGame{
         }
         void Update()
         {
-            if(Input.GetKey(KeyCode.Escape) && !levelLoader.LevelCompletedPanel.activeSelf)
+            if(Input.GetKey(KeyCode.Escape) && PrefabsLevelLoader.canPause)
             {
                 Pause();
             }

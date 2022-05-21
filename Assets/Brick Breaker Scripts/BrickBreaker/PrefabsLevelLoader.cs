@@ -29,6 +29,9 @@ namespace BrickBreakerGame
         public int level;
         public TMP_Text LevelNameText;
         private int CurrentLevel;
+
+        public static bool canPause=false;
+
         public Vector3 PaddlePosition;
         // public int MaxPointToWin;
         BallPhysics ball;
@@ -79,6 +82,7 @@ namespace BrickBreakerGame
 
         public IEnumerator NextLevelLoader()//this function gets automatically called via the START function
         {
+            canPause = false;
             // PauseButton.SetActive(true);
             int _level;
             _level=level;
@@ -95,6 +99,7 @@ namespace BrickBreakerGame
             yield return new WaitForSeconds(2f);
             ObjectivePanel.SetActive(false);
             PauseButton.SetActive(true);
+            canPause = true;
             yield return new WaitForSeconds(0.3f);
             ball._rigidbody.velocity=Vector3.down*ball.speed;
         }
@@ -118,6 +123,7 @@ namespace BrickBreakerGame
         }
         IEnumerator LoadLevelAfterGameOver()
         {
+            canPause = false;
             // PauseButton.SetActive(true);
             int _level;
             _level=level;
@@ -135,6 +141,7 @@ namespace BrickBreakerGame
             yield return new WaitForSeconds(2f);
             ObjectivePanel.SetActive(false);
             PauseButton.SetActive(true);
+            canPause = true;
             yield return new WaitForSeconds(0.3f);
             ball._rigidbody.velocity=Vector3.down*ball.speed;
         }
@@ -156,6 +163,7 @@ namespace BrickBreakerGame
         }
         IEnumerator NextLevel() 
         {
+            canPause = false;   
             // PauseButton.SetActive(true);
             score.PlayScore=0;
             Time.timeScale=1f;
@@ -179,6 +187,7 @@ namespace BrickBreakerGame
             yield return new WaitForSeconds(2f);
             ObjectivePanel.SetActive(false);
             PauseButton.SetActive(true);
+            canPause = true;
             ball._rigidbody.velocity=Vector3.down*ball.speed;
         }
 
@@ -191,6 +200,7 @@ namespace BrickBreakerGame
         }
         public IEnumerator CallByButton(int __level) 
         {
+            canPause = false;
             PauseButton.SetActive(true);
             score.PlayScore=0;
             Time.timeScale=1f;
@@ -211,10 +221,12 @@ namespace BrickBreakerGame
             yield return new WaitForSeconds(2f);
             ObjectivePanel.SetActive(false);
             PauseButton.SetActive(true);
+            canPause = true;
             ball._rigidbody.velocity=Vector3.down*ball.speed;
         }
         IEnumerator LoadAfterGameOverByButton(int __level)
         {
+            canPause = false;
             PauseButton.SetActive(true);
             int _level;
             _level=__level;
@@ -232,6 +244,7 @@ namespace BrickBreakerGame
             yield return new WaitForSeconds(2f);
             ObjectivePanel.SetActive(false);
             PauseButton.SetActive(true);
+            canPause=true;
             yield return new WaitForSeconds(0.3f);
             ball._rigidbody.velocity=Vector3.down*ball.speed;
         }

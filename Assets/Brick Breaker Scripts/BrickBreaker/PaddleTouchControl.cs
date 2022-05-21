@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BrickBreakerGame{
     public class PaddleTouchControl : MonoBehaviour
     {
-    private Touch touch;
+    /*private Touch touch;
     PrefabsLevelLoader levelLoader;
         private float speedModifier;
         // Start is called before the first frame update
@@ -30,6 +30,6 @@ namespace BrickBreakerGame{
                         );
                 }
             }
-        }
+        }*/
     }
 }
